@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Home from "./components/home";
+import Contacts from "./components/contacts";
+class App extends Component {
+  state = {
+    contacts: [],
+  };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  componentDidMount() {
+    fetch("http://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ contacts: data });
+      })
+      .catch(console.log);
+  }
+
+  render() {
+    const { contacts } = this.state;
+    return (
+      <div className="App">
+        <Home />
+        <Contacts contacts={contacts} />
+      </div>
+    );
+  }
 }
 
 export default App;
