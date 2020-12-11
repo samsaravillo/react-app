@@ -2,14 +2,37 @@ import React from "react";
 import { Alert } from "reactstrap";
 import Slider from "./slider";
 import Chart from "./chart";
+import List from "./list";
 
 const Home = () => {
+  const handleCreateSomething = () => {
+    console.log("handle Create Something");
+  };
+
+  const handleReadSomething = () => {
+    console.log("handle Read Something");
+  };
+
+  const handleUpdateSomething = () => {
+    console.log("handle Update Something");
+  };
+
+  const handleDestroySomething = () => {
+    console.log("handle Destroy Something");
+  };
+
   return (
     <React.Fragment>
+      <List
+        create={handleCreateSomething}
+        read={handleReadSomething}
+        update={handleUpdateSomething}
+        destroy={handleDestroySomething}
+      />
       <Alert color="primary">This is a primary alert — check it out!</Alert>
       <div>
-        <Slider></Slider>
-        <Chart></Chart>
+        <Slider />
+        <Chart />
       </div>
       {/* <div className="card">
         <div className="card-body">
