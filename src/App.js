@@ -1,30 +1,24 @@
-import React, { Component } from "react";
-import "./App.css";
-import Home from "./components/home";
-import Contacts from "./components/contacts";
-class App extends Component {
-  state = {
-    contacts: [],
-  };
+import React from 'react';
+import { Route, Redirect, Switch } from "react-router-dom";
+import Home from './components/home/home';
+import NotFound from './components/notFound';
+import './App.css';
 
-  componentDidMount() {
-    fetch("http://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ contacts: data });
-      })
-      .catch(console.log);
-  }
-
-  render() {
-    const { contacts } = this.state;
-    return (
-      <div className="App">
-        <Home />
-        <Contacts contacts={contacts} />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <React.Fragment>
+      <main className="container">
+          <div className="content">
+            <Switch>
+              <Route path="/home" component={Home} />
+              <Route path="/not-found" component={NotFound} />
+              <Redirect from="/" exact to="/home" />
+              <Redirect to="/not-found" />
+            </Switch>
+          </div>
+        </main>
+    </React.Fragment>
+  );
 }
 
 export default App;
