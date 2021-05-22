@@ -3,6 +3,7 @@ import { Alert } from "reactstrap";
 import Slider from "./../slider";
 import Chart from "./../chart";
 import Contacts from "./../contacts";
+import CreateOption from "../common/createOption/createOption";
 
 const Home = () => {
   const [$contacts, setContacts] = useState([]);
@@ -25,6 +26,9 @@ const Home = () => {
   return (
     <React.Fragment>
       <Alert color="primary">This is a primary alert — check it out!</Alert>
+      <div>
+        <CreateOption />
+      </div>
       <div>
         <Slider></Slider>
         <Chart></Chart>
