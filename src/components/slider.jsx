@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import RangeSlider from "react-bootstrap-range-slider";
 
-import { modelsData } from "./services/mockData";
-
 const Slider = () => {
   const [value, setValue] = useState();
 

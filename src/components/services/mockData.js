@@ -26,7 +26,7 @@ export const modelsData = [
 ];
 
 
-export const option = [
+export const optionData = [
   {
     "optionId": 1, 
     "optionName": "Option 1",
