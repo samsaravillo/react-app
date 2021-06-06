@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-} from "reactstrap";
+import { Card, CardBody, Form, FormGroup, Input } from "reactstrap";
 
-const CreateOption = ({ model }) => {
+const createScope = ({ model }) => {
   return (
     <div>
       <Card>
@@ -39,4 +30,4 @@ const CreateOption = ({ model }) => {
   );
 };
 
-export default CreateOption;
+export default createScope;

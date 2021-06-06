@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Alert } from "reactstrap";
-import Slider from "./../slider";
-import Chart from "./../chart";
+
 import Contacts from "./../contacts";
-import CreateOption from "../common/createOption/createForm";
+import CreateOption from "../common/createScope/createScope";
 import { optionData } from "../services/mockData";
 
 const Home = () => {
@@ -45,14 +43,10 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <Alert color="primary">This is a primary alert — check it out!</Alert>
+      <Contacts contacts={$contacts} />
+
       <div>
         <CreateOption model={$options} />
-      </div>
-      <div>
-        <Slider></Slider>
-        <Chart></Chart>
-        <Contacts contacts={$contacts} />
       </div>
     </React.Fragment>
   );
