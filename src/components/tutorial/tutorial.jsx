@@ -7,6 +7,15 @@ const Tutorial = (props) => {
     title: "",
     description: "",
     published: false,
+    programs: [],
+  };
+
+  //array list
+  const programsState = {
+    id: null,
+    name: "",
+    content: "",
+    type: "",
   };
 
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
