@@ -8,8 +8,34 @@ const TutorialsList = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
 
+  const [holder, setHolder] = useState([]);
+  const [tutorial, setTutorial] = useState([]);
+  const [sample, setSample] = useState([]);
+
+  const obj = {
+    title: "Frontend",
+    description: "Frontend Technologies",
+    published: false,
+    programs: [],
+  };
+
+  const objProgram = [
+    {
+      programName: "React Program Name",
+      content: "reactjs",
+      type: "video",
+    },
+    {
+      programName: "TypeScript Name",
+      content: "TypeScript",
+      type: "video",
+    },
+  ];
+
   useEffect(() => {
     retrieveTutorials();
+    setTutorial(obj);
+    setSample(objProgram);
   }, []);
 
   const onChangeSearchTitle = (e) => {
@@ -61,10 +87,22 @@ const TutorialsList = () => {
       });
   };
 
+  const handleList = () => {
+    //const values = tutorial.push({ tutorial });
+    console.log(sample);
+    const prog = holder.push(sample);
+    console.log(tutorial);
+    setTutorial({ ...tutorial, programs: sample });
+  };
+
   return (
     <div className="list row">
       <div className="col-md-8">
         <div className="input-group mb-3">
+          <button className="m-2 btn btn-primary" onClick={() => handleList()}>
+            Test Button
+          </button>
+
           <input
             type="text"
             className="form-control"
